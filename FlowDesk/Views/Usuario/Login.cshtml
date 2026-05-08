@@ -1,4 +1,4 @@
-﻿@model FlowDesk.Models.LoginViewModel
+﻿@model FlowDesk.DTOs.LoginDto
 
 @{
 	ViewData["Title"] = "Login";
@@ -19,7 +19,7 @@
 				<form asp-action="Login" method="post">
 					@Html.AntiForgeryToken()
 
-					<div asp-validation-summary="ModelOnly" class="text-danger small mb-3"> </div>
+					<div asp-validation-summary="All" class="text-danger small mb-3"> </div>
 					<div>
 						<label asp-for="Email"> </label>
 						<input asp-for="Email" placeholder="email@email.com" />

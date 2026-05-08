@@ -1,12 +1,11 @@
-﻿using FlowDesk.Interfaces;
-using FlowDesk.Models;
+﻿using FlowDesk.DTOs;
+using FlowDesk.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-
-namespace LojaEcomerce.Controllers
+namespace FlowDesk.Controllers
 {
     public class UsuarioController : Controller
     {
@@ -18,28 +17,25 @@ namespace LojaEcomerce.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-        //Método Login
+        public IActionResult Login() => View();
+
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel user)
+        public async Task<IActionResult> Login(LoginDto user)
         {
             if (!ModelState.IsValid) return View(user);
+
             var usuario = _usuarioRepositorio.Validar(user.Email, user.Senha);
 
             if (usuario != null)
             {
-                // inicia a criaçao de uma lista de claims(declarações) 
-                // pense como as informações que compõe o cracha 
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, usuario.Nome),
                     new Claim(ClaimTypes.Email, usuario.Email),
                     new Claim("NivelAcesso", usuario.Nivel),
-                    new Claim("UsuarioId",usuario.Id.ToString())
+                    new Claim("UsuarioId", usuario.Id.ToString())
                 };
+
                 var identidade = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                 await HttpContext.SignInAsync(
@@ -49,17 +45,17 @@ namespace LojaEcomerce.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-            ModelState.AddModelError("", "Email ou Senha Inválidos");
+
+            ModelState.AddModelError("", "Email ou Senha inválidos");
             return View(user);
         }
-        //Método Sair
 
         [HttpGet]
         public IActionResult CriarConta() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CriarConta(LoginViewModel usuario)
+        public IActionResult CriarConta(CriarContaDto usuario)
         {
             if (ModelState.IsValid)
             {
@@ -76,4 +72,3 @@ namespace LojaEcomerce.Controllers
         }
     }
 }
-
