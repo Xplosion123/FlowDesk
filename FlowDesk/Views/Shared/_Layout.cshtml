@@ -9,51 +9,27 @@
     <link rel="stylesheet" href="~/FlowDesk.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FlowDesk</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Login">Login</a>
-                        </li>
-                    </ul>
-                    <!--Identificação do usuario-->
-                    <ul class="navbar-nav">
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li>
-                                <span>
-                                    Olá,@User.Identity.Name
-                                </span>
-                            </li>
-                            <li>
-                                <a asp-controller="Usuario" asp-action="Sair">
-                                    Sair
-                                </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li>
-                                <a asp-controller="Usuario" asp-action="Login">
-                                    Entrar
-                                </a>
-                            </li>
-                        }
+    <header style="background: #fff; height: 65px; display: flex; align-items: center; padding: 0 2rem; justify-content: space-between; border-bottom: 1px solid #e4e4e7; position: sticky; top: 0; z-index: 100;">
 
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <a asp-controller="Home" asp-action="Index"
+           style="font-size: 1.2rem; font-weight: 700; color: #09090b; text-decoration: none; letter-spacing: -0.5px;">
+            FlowDesk
+        </a>
+
+        <div style="display: flex; align-items: center; gap: 2rem;">
+            <a asp-controller="Usuario" asp-action="CriarConta" class="fd-nav-link">Registrar</a>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <span style="color: #71717a; font-size: 14px;">Olá, @User.Identity.Name</span>
+                <a asp-controller="Usuario" asp-action="Sair" class="fd-nav-link">Sair</a>
+            }
+            else
+            {
+                <a asp-controller="Usuario" asp-action="Login" class="fd-nav-btn">Entrar</a>
+            }
+        </div>
+
     </header>
     <div class="container">
         <main role="main" class="pb-3">

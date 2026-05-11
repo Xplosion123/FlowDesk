@@ -77,3 +77,30 @@ body {
     .fd-dark hr {
         border-color: #27272a !important;
     }
+.fd-nav-link {
+    color: #71717a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+    .fd-nav-link:hover {
+        color: #09090b;
+    }
+
+.fd-nav-btn {
+    background: #09090b;
+    color: #fff !important;
+    padding: 8px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+    .fd-nav-btn:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+    }
