@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="~/FlowDesk.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header style="background: #fff; height: 65px; display: flex; align-items: center; padding: 0 2rem; justify-content: space-between; border-bottom: 1px solid #e4e4e7; position: sticky; top: 0; z-index: 100;">
+    <header style="background: black; height: 65px; display: flex; align-items: center; padding: 0 2rem; justify-content: space-between; border-bottom: 1px solid black; position: sticky; top: 0; z-index: 100;">
 
         <a asp-controller="Home" asp-action="Index"
-           style="font-size: 1.2rem; font-weight: 700; color: #09090b; text-decoration: none; letter-spacing: -0.5px;">
+           style="font-size: 1.2rem; font-weight: 700; color: #1DB954; text-decoration: none; letter-spacing: -0.5px;">
             FlowDesk
         </a>
 
@@ -21,7 +21,7 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                <span style="color: #71717a; font-size: 14px;">Olá, @User.Identity.Name</span>
+                <span style="color: #b3b3b3; font-size: 14px;">Olá, @User.Identity.Name</span>
                 <a asp-controller="Usuario" asp-action="Sair" class="fd-nav-link">Sair</a>
             }
             else
@@ -37,7 +37,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer text-muted" style="border-top: 1px solid #27272a;">
         <div class="container" style="text-align: center;">
             &copy; 2026 - FlowDesk - Criação e gestão de tickets corporativos
         </div>

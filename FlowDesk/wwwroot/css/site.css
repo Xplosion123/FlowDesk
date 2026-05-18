@@ -18,7 +18,8 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #121212;
 }
 .fd-btn-primary {
     transition: opacity 0.2s, transform 0.2s;
@@ -34,7 +35,7 @@ body {
 }
 
     .fd-btn-ghost:hover {
-        background: #f4f4f5 !important;
+        background: #1ed760 !important;
         transform: translateY(-2px);
     }
 
@@ -44,7 +45,7 @@ body {
 
     .fd-card:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        box-shadow: 0 8px 24px rgba(29, 185, 84, 0.15);
     }
 .fd-dark {
     background: #09090b;
@@ -78,20 +79,22 @@ body {
         border-color: #27272a !important;
     }
 .fd-nav-link {
-    color: #71717a;
+    color: #b3b3b3;
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    transition: color 0.2s;
+    transition: opacity 0.2s, transform 0.2s;
 }
 
     .fd-nav-link:hover {
-        color: #09090b;
+        opacity: 0.85;
+        transform: translateY(-1px);
+        color: white;
     }
 
 .fd-nav-btn {
-    background: #09090b;
-    color: #fff !important;
+    background: transparent;
+    color: #b3b3b3 !important;
     padding: 8px 22px;
     border-radius: 8px;
     font-size: 14px;
@@ -103,4 +106,26 @@ body {
     .fd-nav-btn:hover {
         opacity: 0.85;
         transform: translateY(-1px);
+        color: #1DB954 !important;
     }
+.fd-btn-primary:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+}
+
+.fd-btn-ghost:hover {
+    background: #1ed760 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.4);
+}
+.fd-nav-btn {
+    background: #1DB954;
+    color: #fff !important;
+    padding: 8px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+}
