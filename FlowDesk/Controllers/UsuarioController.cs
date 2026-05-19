@@ -32,6 +32,7 @@ namespace FlowDesk.Controllers
                 {
                     new Claim(ClaimTypes.Name, usuario.Nome),
                     new Claim(ClaimTypes.Email, usuario.Email),
+                    new Claim(ClaimTypes.Role, usuario.Nivel),
                     new Claim("NivelAcesso", usuario.Nivel),
                     new Claim("UsuarioId", usuario.Id.ToString())
                 };
