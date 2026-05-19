@@ -43,7 +43,7 @@ namespace FlowDesk.Controllers
                     new ClaimsPrincipal(identidade),
                     new AuthenticationProperties { IsPersistent = false });
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Dashboard");
             }
 
             ModelState.AddModelError("", "Email ou Senha inválidos");
