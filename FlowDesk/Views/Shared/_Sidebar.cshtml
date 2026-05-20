@@ -1,0 +1,27 @@
+﻿<div class="sidebar" id="sidebar">
+    <div class="sidebar-logo">FlowDesk</div>
+
+    <!-- itens que aparecem pra todo mundo -->
+    <div class="nav-item">
+        <i>🏠</i>
+        <span class="nav-texto">Dashboard</span>
+    </div>
+    <div class="nav-item">
+        <i>🎫</i>
+        <span class="nav-texto">Meus chamados</span>
+    </div>
+
+    <!-- itens só do admin -->
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="nav-section">Administração</div>
+        <div class="nav-item">
+            <i>📋</i>
+            <span class="nav-texto">Todos os chamados</span>
+        </div>
+        <div class="nav-item">
+            <i>👥</i>
+            <span class="nav-texto">Usuários</span>
+        </div>
+    }
+</div>
