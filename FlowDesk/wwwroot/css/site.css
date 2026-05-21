@@ -106,7 +106,7 @@ body {
     .fd-nav-btn:hover {
         opacity: 0.85;
         transform: translateY(-1px);
-        color: #1DB954 !important;
+        color: white !important;
     }
 .fd-btn-primary:hover {
     opacity: 0.8;
